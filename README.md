@@ -1,16 +1,51 @@
-# React + Vite
+# Event-Driven Serverless Order Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a cloud-native, event-driven, and serverless Order Management System. It was developed as a Final Project for the Cloud Computing & Web Development course at Holon Institute of Technology (HIT) by Lior Mizrachi, Daniel Ben David, and Ido Levi.
 
-Currently, two official plugins are available:
+## System Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The architecture is designed to decouple the frontend from the backend, ensuring high scalability and maintenance efficiency. The system utilizes synchronous RESTful APIs for user interactions and asynchronous processing for background tasks.
 
-## React Compiler
+## Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![System Architecture](/images/SystemArchitecture.jpg)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+
+* **AWS Amplify**: Provides a robust, globally scalable hosting environment for the React web application.
+* **AWS API Gateway**: Acts as the front door for our application to communicate securely via REST APIs.
+* **AWS Lambda**: Provides serverless compute to run core business logic and CRUD operations.
+* **Amazon DynamoDB**: Selected as the primary database for its serverless nature and flexible NoSQL structure.
+* **Amazon SNS**: Used for asynchronous event processing and sending immediate emails.
+* **Amazon S3**: Securely backs up deleted orders and hosts generated PDF reports.
+* **Amazon EventBridge**: Orchestrates scheduled automated tasks like daily business summaries.
+
+## Core Features & Tested Flows
+
+1.  **Order Management**: Full CRUD operations to create, read, update, and delete orders.
+2.  **Automated Backups & Alerts**: Deleting an order triggers a background process to save a backup to S3 and send an SNS email alert.
+3.  **PDF Reports**: Ability to generate a downloadable PDF report of orders.
+4.  **Automated Event-Driven BI Reporting (Freestyle Enhancement)**: A serverless cron job scans the database daily, aggregates metrics, saves a report to S3, and sends a download link via SNS.
+
+## Application Screenshots
+
+### Creating a New Order
+![Creating Order](/images/CreateNewOrder.jpg)
+
+### Deleting an Order & Asynchronous Alert
+![Deleting Order](/images/DeletingOrder.jpg)
+
+### Daily Business Summary (BI Reporting)
+![BI Report](/images/BIReport.jpg)
+
+## API Reference
+
+| API Name | HTTP Method | Endpoint | Sample Output |
+| :--- | :--- | :--- | :--- |
+| **Create Order** | POST | `/orders` | `{"message": "order created successfully"}` |
+| **Get All Orders** | GET | `/orders` | `{"orders": [...]}` |
+| **Update Order** | PUT | `/orders` | `{"message": "order updated successfully"}` |
+| **Delete Order** | DELETE | `/orders` | `{"message": "order deleted and backup process initiated"}` |
+| **Generate Report** | GET | `/orders/report` | `{"message": "Report generated", "download_uri": "..."}` |
+| **Subscribe to Alerts** | POST | `/subscribe` | `{"message": "Subscription request sent. Please check your email."}` |
