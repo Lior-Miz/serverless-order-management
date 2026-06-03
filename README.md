@@ -1,9 +1,11 @@
 # Event-Driven Serverless Order Management System
 
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonwebservices&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Serverless](https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white)
+
+
 
 This project is a cloud-native, event-driven, and serverless Order Management System. It was developed as a Final Project for the Cloud Computing & Web Development course at Holon Institute of Technology (HIT) by Lior Mizrachi.
 
@@ -17,6 +19,7 @@ The architecture is designed to decouple the frontend from the backend, ensuring
 
 ## Project Structure
 
+```text
 ├── frontend/             # React application (UI) hosted on AWS Amplify
 ├── backend/              # AWS Lambda Python functions
 │   ├── api/              # CRUD operations (Sync)
@@ -24,6 +27,7 @@ The architecture is designed to decouple the frontend from the backend, ensuring
 │   └── cron/             # EventBridge scheduled tasks
 ├── docs/                 # Architecture diagrams and screenshots
 └── README.md
+```
 
 ## Technologies Used
 
@@ -66,6 +70,6 @@ The architecture is designed to decouple the frontend from the backend, ensuring
 
 ## Contact
 
-* **Lior Mizrachi** - [LinkedIn](https://www.linkedin.com/in/your-profile-link) | [GitHub](https://github.com/Lior-Miz)
+* **Lior Mizrachi** - [LinkedIn](https://www.linkedin.com/in/lior-mizrachi/) | [GitHub](https://github.com/Lior-Miz)
 
 Project Link: [https://github.com/Lior-Miz/serverless-order-management](https://github.com/Lior-Miz/serverless-order-management)
