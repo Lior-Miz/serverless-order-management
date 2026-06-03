@@ -1,6 +1,11 @@
 # Event-Driven Serverless Order Management System
 
-This project is a cloud-native, event-driven, and serverless Order Management System. It was developed as a Final Project for the Cloud Computing & Web Development course at Holon Institute of Technology (HIT) by Lior Mizrachi, Daniel Ben David, and Ido Levi.
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
+![Serverless](https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white)
+
+This project is a cloud-native, event-driven, and serverless Order Management System. It was developed as a Final Project for the Cloud Computing & Web Development course at Holon Institute of Technology (HIT) by Lior Mizrachi.
 
 ## System Overview
 
@@ -10,6 +15,15 @@ The architecture is designed to decouple the frontend from the backend, ensuring
 
 ![System Architecture](/images/SystemArchitecture.jpg)
 
+## Project Structure
+
+├── frontend/             # React application (UI) hosted on AWS Amplify
+├── backend/              # AWS Lambda Python functions
+│   ├── api/              # CRUD operations (Sync)
+│   ├── background/       # Event-driven functions (Async via DynamoDB Streams)
+│   └── cron/             # EventBridge scheduled tasks
+├── docs/                 # Architecture diagrams and screenshots
+└── README.md
 
 ## Technologies Used
 
@@ -49,3 +63,9 @@ The architecture is designed to decouple the frontend from the backend, ensuring
 | **Delete Order** | DELETE | `/orders` | `{"message": "order deleted and backup process initiated"}` |
 | **Generate Report** | GET | `/orders/report` | `{"message": "Report generated", "download_uri": "..."}` |
 | **Subscribe to Alerts** | POST | `/subscribe` | `{"message": "Subscription request sent. Please check your email."}` |
+
+## Contact
+
+* **Lior Mizrachi** - [LinkedIn](https://www.linkedin.com/in/your-profile-link) | [GitHub](https://github.com/Lior-Miz)
+
+Project Link: [https://github.com/Lior-Miz/serverless-order-management](https://github.com/Lior-Miz/serverless-order-management)
